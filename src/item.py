@@ -58,7 +58,10 @@ class Item:
         with open(filename, encoding="windows-1251", newline='') as csvfile:
             reader = DictReader(csvfile)
             for row in reader:
-                cls(row["name"], row["price"], row["quantity"])
+                name = row["name"]
+                price = row["price"]
+                quantity = row["quantity"]
+                cls(str(name), float(price), int(quantity))
 
     @staticmethod
     def string_to_number(number):
